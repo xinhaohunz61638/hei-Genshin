@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>折扣计算 - 原神代肝小站</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">原神代肝小站</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="categories.html">分类</a></li>
+                    <li><a href="discount.html" class="active">折扣计算</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="discount-calculator">
+            <div class="container">
+                <h2>折扣计算器</h2>
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="originalPrice">商品原价 (¥):</label>
+                        <input type="number" id="originalPrice" placeholder="请输入商品原价" min="0" step="0.01">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="discountType">优惠类型:</label>
+                        <select id="discountType">
+                            <option value="">请选择优惠类型</option>
+                            <option value="fans">粉丝牌优惠</option>
+                            <option value="group">群友优惠</option>
+                        </select>
+                    </div>
+                    
+                    <!-- 粉丝牌优惠选项 -->
+                    <div class="form-group" id="fansOptions" style="display: none;">
+                        <label>粉丝牌等级:</label>
+                        <input type="range" id="fansLevel" list="fansLevels" min="1" max="6" step="1" value="0">
+                        <datalist id="fansLevels">
+                            <option value="1" label="8~12级 (95折)">
+                            <option value="2" label="13~16级 (9折)">
+                            <option value="3" label="17~19级 (85折)">
+                            <option value="4" label="20~25级 (8折)">
+                            <option value="5" label="25级以上 (75折)">
+                            <option value="6" label="舰长 (7折)">
+                        </datalist>
+                        <div class="range-labels" id="fansLevelLabels">
+                            <span>8~12级 (95折)</span>
+                            <span>13~16级 (9折)</span>
+                            <span>17~19级 (85折)</span>
+                            <span>20~25级 (8折)</span>
+                            <span>25级以上 (75折)</span>
+                            <span>舰长 (7折)</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 群友优惠选项 -->
+                    <div class="form-group" id="groupOptions" style="display: none;">
+                        <label>群友等级:</label>
+                        <input type="range" id="groupLevel" list="groupLevels" min="1" max="5" step="1" value="0">
+                        <datalist id="groupLevels">
+                            <option value="1" label="黄金 (95折)">
+                            <option value="2" label="铂金 (9折)">
+                            <option value="3" label="钻石 (85折)">
+                            <option value="4" label="王者 (8折)">
+                            <option value="5" label="紫牌 (5折)">
+                        </datalist>
+                        <div class="range-labels" id="groupLevelLabels">
+                            <span>黄金 (95折)</span>
+                            <span>铂金 (9折)</span>
+                            <span>钻石 (85折)</span>
+                            <span>王者 (8折)</span>
+                            <span>紫牌 (5折)</span>
+                        </div>
+                    </div>
+                    
+
+                    
+                    <!-- 特殊优惠选项 -->
+                    <div class="form-group">
+                        <label>特殊优惠:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="studentVerified"> 学生/教师 (已验证, 85折)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="studentUnverified"> 学生/教师 (未验证, 9折)
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button id="calculateBtn" class="btn-primary">计算折扣</button>
+                    
+                    <div class="result-section">
+                        <h3>计算结果</h3>
+                        <div class="result-item">
+                            <span>原价:</span>
+                            <span id="originalPriceResult">¥0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span>折扣金额:</span>
+                            <span id="discountAmount">¥0.00</span>
+                        </div>
+                        <div class="result-item total">
+                            <span>最终价格:</span>
+                            <span id="finalPrice">¥0.00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="discount-info">
+                    <h2>折扣列表</h2>
+                    <div class="discount-table">
+                        <div class="discount-category">
+                            <h4>粉丝牌优惠</h4>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>等级</th>
+                                        <th>折扣</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>8~12级</td>
+                                        <td>95折</td>
+                                    </tr>
+                                    <tr>
+                                        <td>13~16级</td>
+                                        <td>9折</td>
+                                    </tr>
+                                    <tr>
+                                        <td>17~19级</td>
+                                        <td>85折</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20~25级</td>
+                                        <td>8折</td>
+                                    </tr>
+                                    <tr>
+                                        <td>25级以上</td>
+                                        <td>75折</td>
+                                    </tr>
+                                    <tr>
+                                        <td>舰长</td>
+                                        <td>7折</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="discount-category">
+                            <h4>群友优惠</h4>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>等级</th>
+                                        <th>折扣</th>
+                                        <th>具体等级</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>黄金</td>
+                                        <td>95折</td>
+                                        <td>15~30级</td>
+                                    </tr>
+                                    <tr>
+                                        <td>铂金</td>
+                                        <td>9折</td>
+                                        <td>31~50级</td>
+                                    </tr>
+                                    <tr>
+                                        <td>钻石</td>
+                                        <td>85折</td>
+                                        <td>51~70级</td>
+                                    </tr>
+                                    <tr>
+                                        <td>王者</td>
+                                        <td>8折</td>
+                                        <td>71~100级</td>
+                                    </tr>
+                                    <tr>
+                                        <td>紫牌</td>
+                                        <td>5折</td>
+                                        <td>N/A</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="discount-category">
+                            <h4>特殊优惠</h4>
+                            <p>(可与粉丝牌优惠或群友优惠叠加)</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>身份</th>
+                                        <th>折扣</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>学生/教师 (已验证)</td>
+                                        <td>85折</td>
+                                    </tr>
+                                    <tr>
+                                        <td>学生/教师 (未验证)</td>
+                                        <td>9折</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 电商商城. 版权所有.</p>
+        </div>
+    </footer>
+
+    <script src="js/discount.js"></script>
+</body>
+</html>

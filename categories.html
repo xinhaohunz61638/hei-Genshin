@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分类页 - 原神代肝小站</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">原神代肝小站</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="categories.html" class="active">分类</a></li>
+                    <li><a href="discount.html">折扣计算</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="categories-container">
+            <div class="container">
+                <div class="category-header">
+                    <h2>游戏服务分类</h2>
+                    <div class="search-box">
+                        <input type="text" placeholder="搜索服务..." class="search-input">
+                        <button class="search-btn">搜索</button>
+                    </div>
+                </div>
+                
+                <div class="category-layout">
+                    <!-- 左侧分类导航 -->
+                    <aside class="category-sidebar">
+                        <div class="sidebar-header">
+                            <h3>全部分类</h3>
+                        </div>
+                        <ul class="category-list">
+                            <li class="category-item active" data-category="all">全部服务</li>
+                            <li class="category-item" data-category="task">任务类</li>
+                            <li class="category-item" data-category="explore">探索类</li>
+                            <li class="category-item" data-category="collect">采集类</li>
+                            <li class="category-item" data-category="combat">打怪类</li>
+                            <li class="category-item" data-category="account">账号托管</li>
+                            <li class="category-item" data-category="fishing">钓鱼类</li>
+                            <li class="category-item" data-category="other">其它</li>
+                        </ul>
+
+                        <div class="price-rules">
+                            <h3>价格规则说明</h3>
+                            <p><strong>痛苦号界定标准</strong> (满足任意1条即为痛苦号)：</p>
+                            <ul>
+                                <li>世界等级 ≤ 7</li>
+                                <li>5星角色突破90级数量 &lt; 5</li>
+                            </ul>
+                            <p>若为痛苦号则价格<strong> × 1.5</strong></p>
+                            <p>加急价格<strong> × 3</strong></p>
+                        </div>
+                    </aside>
+
+                    <!-- 右侧商品展示 -->
+                    <div class="category-content">
+                        <div class="content-header">
+                            <h3>全部服务</h3>
+                            <div class="filter-options">
+                                <select class="filter-select">
+                                    <option value="default">默认排序</option>
+                                    <option value="price-asc">价格从低到高</option>
+                                    <option value="price-desc">价格从高到低</option>
+                                    <option value="new">新品优先</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="product-grid">
+                            <!-- 任务类服务商品 -->
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>捕风的异乡人</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">蒙德主线任务</p>
+                                        <p class="product-desc">序章 · 第一幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥15.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>为了没有眼泪的明天</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">蒙德主线任务</p>
+                                        <p class="product-desc">序章 · 第二幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥15.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>巨龙与自由之歌</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">蒙德主线任务</p>
+                                        <p class="product-desc">序章 · 第三幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥15.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>浮世浮生千岩间</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">璃月主线任务</p>
+                                        <p class="product-desc">第一章 · 第一幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥12.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>辞行久远之躯</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">璃月主线任务</p>
+                                        <p class="product-desc">第一章 · 第二幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥12.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>迫近的客星</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">璃月主线任务</p>
+                                        <p class="product-desc">第一章 · 第三幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥12.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>我们终将重逢</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">璃月主线任务</p>
+                                        <p class="product-desc">第一章 · 第四幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥12.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>振袖秋风问红叶</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">稻妻主线任务</p>
+                                        <p class="product-desc">第二章 · 序幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>不动鸣神，恒昌乐土</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">稻妻主线任务</p>
+                                        <p class="product-desc">第二章 · 第一幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥12.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>无念无想，泡影断灭</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">稻妻主线任务</p>
+                                        <p class="product-desc">第二章 · 第二幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>千手百眼，天下人间</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">稻妻主线任务</p>
+                                        <p class="product-desc">第二章 · 第三幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥12.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>风起鶴归</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">璃月主线任务</p>
+                                        <p class="product-desc">间章 · 第一幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>回响渊底的安魂曲</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">层岩巨渊主线任务</p>
+                                        <p class="product-desc">第二章 · 第四幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>危途疑踪</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">层岩巨渊相关任务</p>
+                                        <p class="product-desc">间章 · 第二幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>穿越烟帷与暗林</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥主线任务</p>
+                                        <p class="product-desc">第三章 · 第一幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>千朵玫瑰带来的黎明</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥主线任务</p>
+                                        <p class="product-desc">第三章 · 第二幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>迷梦与空幻与欺骗</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥主线任务</p>
+                                        <p class="product-desc">第三章 · 第三幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>赤土之王与三朝圣者</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥主线任务</p>
+                                        <p class="product-desc">第三章 · 第四幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>虚空鼓动，劫火高扬</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥主线任务</p>
+                                        <p class="product-desc">第三章 · 第五幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>倾落伽蓝</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥间章任务</p>
+                                        <p class="product-desc">间章 · 第三幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥12.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>卡利贝尔</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥间章任务</p>
+                                        <p class="product-desc">第三章 · 第六幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>白露与黑潮的序诗</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">枫丹主线任务</p>
+                                        <p class="product-desc">第四章 · 第一幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>仿若无因飘落的轻雨</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">枫丹主线任务</p>
+                                        <p class="product-desc">第四章 · 第二幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>向深水中的晨星</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">枫丹主线任务</p>
+                                        <p class="product-desc">第四章 · 第三幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>谕示胎动的终焉之刻</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">枫丹主线任务</p>
+                                        <p class="product-desc">第四章 · 第四幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>罪人舞步旋</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">枫丹主线任务</p>
+                                        <p class="product-desc">第四章 · 第五幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>睡前故事</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥间章任务</p>
+                                        <p class="product-desc">第四章 · 第六幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥12.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>荣花与炎日之途</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">纳塔主线任务</p>
+                                        <p class="product-desc">第五章 · 第一幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥12.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>黑石湮落白石下</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">纳塔主线任务</p>
+                                        <p class="product-desc">第五章 · 第二幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥12.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>镜与谜烟的彼方</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">纳塔主线任务</p>
+                                        <p class="product-desc">第五章 · 第三幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥12.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>命定将焚的虹光</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">纳塔主线任务</p>
+                                        <p class="product-desc">第五章 · 第四幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥12.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>万火归一</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">纳塔主线任务</p>
+                                        <p class="product-desc">第五章 · 幕间</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥12.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>炽烈的还魂诗</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">纳塔主线任务</p>
+                                        <p class="product-desc">第五章 · 第五幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥12.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>悖理</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">蒙德主线任务</p>
+                                        <p class="product-desc">间章 · 第四幕</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥12.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>传说任务</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">角色传说任务代做</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥6.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>邀约任务</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">角色邀约任务代做</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥8.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="task">
+                                <div class="product-info">
+                                    <h4>部族任务</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">纳塔部族任务代做</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥8.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 采集类商品 -->
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>落落莓</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">蒙德特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>塞西莉亚花</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">蒙德特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>慕风蘑菇</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">蒙德特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>蒲公英籽</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">蒙德特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>小灯草</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">蒙德特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>风车菊</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">蒙德特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>钩钩果</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">蒙德特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.40</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>清水玉</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">璃月特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>绝云椒椒</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">璃月特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>琉璃袋</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">璃月特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.40</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>霓裳花</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">璃月特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>星螺</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">璃月特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>清心</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">璃月特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.40</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>石珀</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">璃月特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.40</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>夜泊石</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">璃月特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.40</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>海灵芝</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">稻妻特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>鸣草</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">稻妻特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>血斛</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">稻妻特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>晶化骨髓</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">稻妻特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>珊瑚真珠</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">稻妻特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>天云草实</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">稻妻特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>幽灯蕈</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">稻妻特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.30</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>绯樱绣球</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">稻妻特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.40</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>鬼兜虫</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">稻妻特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.50</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>帕蒂沙兰</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>月莲</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.30</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>劫波莲</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.30</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>树王圣体菇</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.30</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>圣金虫</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.50</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>赤念果</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.30</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>沙脂蛹</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.30</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>万相石</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.30</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>悼灵花</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">须弥特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.30</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>苍晶螺</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">枫丹特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>柔灯铃</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">枫丹特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>虹彩蔷薇</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">枫丹特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>幽光星星</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">枫丹特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>湖光铃兰</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">枫丹特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>初露之源</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">枫丹特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>海露花</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">枫丹特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.30</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>子探测单元</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">枫丹特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.50</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>青蜜莓</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">纳塔特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>灼灼彩菊</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">纳塔特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>浪沫羽鳃</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">纳塔特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.30</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>肉龙掌</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">纳塔特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.30</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>微光角菌</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">纳塔特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.30</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>枯叶紫英</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">纳塔特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.30</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>琉鳞石</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">纳塔特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.30</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>云岩裂叶</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">纳塔特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.30</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>月落银</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">挪德卡莱特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.40</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>便携轴承</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">挪德卡莱特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.40</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="collect">
+                                <div class="product-info">
+                                    <h4>霜盏花</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">挪德卡莱特产采集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.40</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 打怪类商品 -->
+                            <div class="product-card" data-category="combat">
+                                <div class="product-info">
+                                    <h4>白色品质</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">打怪掉落材料</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.02</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="combat">
+                                <div class="product-info">
+                                    <h4>绿色品质</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">打怪掉落材料</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.06</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="combat">
+                                <div class="product-info">
+                                    <h4>蓝色品质</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">打怪掉落材料</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.18</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="combat">
+                                <div class="product-info">
+                                    <h4>紫色品质</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">打怪掉落材料</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.50</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 账号托管类商品 -->
+                            <div class="product-card" data-category="account">
+                                <div class="product-info">
+                                    <h4>登录领月卡</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">账号托管服务</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥5.00/月</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="account">
+                                <div class="product-info">
+                                    <h4>委托+体力+派遣</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">委托+160体力+派遣</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥25.00/月</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="account">
+                                <div class="product-info">
+                                    <h4>委托+体力(指定)+派遣</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">委托+160体力(可指定1)+派遣</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥30.00/月</span>
+                                            <span class="current-price">¥55.00/小版本</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="account">
+                                <div class="product-info">
+                                    <h4>全托管基础版</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">委托+160体力+派遣+壶币*1+锻造+20食物</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥35.00/月</span>
+                                            <span class="current-price">¥65.00/小版本</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="account">
+                                <div class="product-info">
+                                    <h4>全托管高级版</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">委托+160体力(可指定1)+派遣+壶币*1+锻造+20食物</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥40.00/月</span>
+                                            <span class="current-price">¥75.00/小版本</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="account">
+                                <div class="product-info">
+                                    <h4>幽境危战(仅原石)</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">幽境危战活动代打</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥12.00/次</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="account">
+                                <div class="product-info">
+                                    <h4>版本大活动(仅原石)</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">版本大活动代打</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥23.00/次</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="account">
+                                <div class="product-info">
+                                    <h4>版本小活动(仅原石)</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">版本小活动代打</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥9.00/次</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 钓鱼类商品 -->
+                            <div class="product-card" data-category="fishing">
+                                <div class="product-info">
+                                    <h4>鱼叉（渔获）（满精）</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">钓鱼武器满精炼</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥40.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="fishing">
+                                <div class="product-info">
+                                    <h4>水管（灰河渡手）（满精）</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">钓鱼武器满精炼</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥40.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="fishing">
+                                <div class="product-info">
+                                    <h4>鱼弓（竭泽）（满精）</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">钓鱼武器满精炼</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥50.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="fishing">
+                                <div class="product-info">
+                                    <h4>成就、书页</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">钓鱼相关成就</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥1.00/池</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="fishing">
+                                <div class="product-info">
+                                    <h4>家具</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">钓鱼家具收集</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.10/条</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="fishing">
+                                <div class="product-info">
+                                    <h4>指定鱼种</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">特定鱼类钓取</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.10/条</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="fishing">
+                                <div class="product-info">
+                                    <h4>鱼饵</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">钓鱼用饵料</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.05/个</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="fishing">
+                                <div class="product-info">
+                                    <h4>鱼饵图纸</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">鱼饵制作图纸</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥1.00/个</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 地图探索类商品 -->
+                            <div class="product-card" data-category="explore">
+                                <div class="product-info">
+                                    <h4>枫丹·佩特莉可镇+旧日之海</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">一条龙包任务</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥70.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="explor">
+                                <div class="product-info">
+                                    <h4>璃月·沉玉谷</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">一条龙包任务</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥90.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="explore">
+                                <div class="product-info">
+                                    <h4>纳塔·坚岩隘谷+万火之瓯+踞石山+涌流地</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">一条龙全收集（无前置）</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥95.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="explore">
+                                <div class="product-info">
+                                    <h4>纳塔·镜璧山+翘枝崖+奥奇卡纳塔</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">一条龙全收集（无前置）</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥125.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="explore">
+                                <div class="product-info">
+                                    <h4>纳塔·安饶之野+远古圣山</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">一条龙全收集（无前置）</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥135.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="explore">
+                                <div class="product-info">
+                                    <h4>挪德卡莱·伦波岛+希汐岛+帕哈岛</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">一条龙全收集（无前置）</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥188.50</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 其他类商品 -->
+                            <div class="product-card" data-category="other">
+                                <div class="product-info">
+                                    <h4>千音雅集·单曲</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">音乐集单曲</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥0.50</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="other">
+                                <div class="product-info">
+                                    <h4>千音雅集·单国家</h4>
+                                    <div class="product-details">
+                                        <p class="product-desc">音乐集单国家</p>
+                                        <div class="price-section">
+                                            <span class="current-price">¥5.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 电商商城. 版权所有.</p>
+        </div>
+    </footer>
+
+    <script src="js/categories.js"></script>
+</body>
+</html>

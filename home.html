@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原神代肝小站 - 整合页面</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 标签页样式 */
+        .tab-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .tab-navigation {
+            display: flex;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px 12px 0 0;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+        
+        .tab-btn {
+            flex: 1;
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .tab-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+        }
+        
+        .tab-content {
+            display: none;
+            background: white;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            min-height: 600px;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        /* 首页特定样式 */
+        .home-banner {
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .home-banner img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        
+        .quick-access {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .quick-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .quick-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .quick-card h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.3rem;
+        }
+        
+        .quick-card p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .tab-btn {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .quick-access {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">原神代肝小站 · 大粒黑/信号混杂</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html">独立首页</a></li>
+                    <li><a href="categories.html">独立分类</a></li>
+                    <li><a href="discount.html">独立折扣</a></li>
+                    <li><a href="home.html" class="active">整合页面</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="tab-container">
+        <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="home">首页</button>
+            <button class="tab-btn" data-tab="categories">商品分类</button>
+            <button class="tab-btn" data-tab="discount">折扣计算</button>
+        </div>
+
+        <!-- 首页内容 -->
+        <div id="home" class="tab-content active">
+            <div class="home-banner">
+                <img src="banner.png" alt="原神代肝服务" onerror="this.style.display='none'">
+            </div>
+
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #333;">欢迎来到原神代肝小站</h2>
+            
+            <div class="quick-access">
+                <a href="#" class="quick-card" onclick="switchTab('categories'); return false;">
+                    <h3>🛒 浏览商品</h3>
+                    <p>查看所有代肝服务与价格</p>
+                </a>
+                
+                <a href="#" class="quick-card" onclick="switchTab('discount'); return false;">
+                    <h3>💰 计算折扣</h3>
+                    <p>根据粉丝等级享受优惠</p>
+                </a>
+                
+                <a href="categories.html" class="quick-card">
+                    <h3>📋 完整分类</h3>
+                    <p>查看独立分类页面</p>
+                </a>
+                
+                <a href="discount.html" class="quick-card">
+                    <h3>🧮 专业计算</h3>
+                    <p>使用独立折扣计算器</p>
+                </a>
+            </div>
+
+            <section class="featured-products">
+                <h3 style="text-align: center; margin: 2rem 0 1rem 0; color: #333;">热门商品</h3>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <h4>包月日体</h4>
+                        <p class="price">¥25/月</p>
+                    </div>
+                    <div class="product-card">
+                        <h4>6.0无前置锚点</h4>
+                        <p class="price">¥12.00</p>
+                    </div>
+                    <div class="product-card">
+                        <h4>6.0开图主线+一条龙全收集</h4>
+                        <p class="price">¥220.00</p>
+                    </div>
+                    <div class="product-card">
+                        <h4>6.0开图主线+锚点</h4>
+                        <p class="price">¥50.00</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <h3 style="text-align: center; margin: 2rem 0 1rem 0; color: #333;">我们的优势</h3>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>保证账号安全</h4>
+                        <p>可看直播也可看回放，确保账号安全</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>保证无遗漏</h4>
+                        <p>所有步骤严格跟随视频，确保无遗漏</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>可成长的折扣</h4>
+                        <p>根据可成长的等级，提供更高的折扣</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 分类页内容 -->
+        <div id="categories" class="tab-content">
+            <div class="category-header">
+                <h2>游戏服务分类</h2>
+                <div class="search-box">
+                    <input type="text" placeholder="搜索服务..." class="search-input" id="tabSearchInput">
+                    <button class="search-btn" onclick="performTabSearch()">搜索</button>
+                </div>
+            </div>
+            
+            <div class="category-layout">
+                <aside class="category-sidebar">
+                    <div class="sidebar-header">
+                        <h3>全部分类</h3>
+                    </div>
+                    <ul class="category-list">
+                        <li class="category-item active" data-category="all">全部服务</li>
+                        <li class="category-item" data-category="task">任务类</li>
+                        <li class="category-item" data-category="explore">探索类</li>
+                        <li class="category-item" data-category="collect">采集类</li>
+                        <li class="category-item" data-category="combat">打怪类</li>
+                        <li class="category-item" data-category="account">账号托管</li>
+                        <li class="category-item" data-category="fishing">钓鱼类</li>
+                        <li class="category-item" data-category="other">其它</li>
+                    </ul>
+
+                    <div class="price-rules">
+                        <h3>价格规则说明</h3>
+                        <p><strong>痛苦号界定标准</strong> (满足任意1条即为痛苦号)：</p>
+                        <ul>
+                            <li>世界等级 ≤ 7</li>
+                            <li>5星角色突破90级数量 &lt; 5</li>
+                        </ul>
+                        <p>若为痛苦号则价格<strong> × 1.5</strong></p>
+                        <p>加急价格<strong> × 3</strong></p>
+                    </div>
+                </aside>
+
+                <div class="category-content">
+                    <div class="content-header">
+                        <h3>全部服务</h3>
+                        <div class="filter-options">
+                            <select class="filter-select" id="tabFilterSelect">
+                                <option value="default">默认排序</option>
+                                <option value="price-asc">价格从低到高</option>
+                                <option value="price-desc">价格从高到低</option>
+                                <option value="new">新品优先</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="product-grid" id="tabProductGrid">
+                        <!-- 任务类商品 -->
+                        <div class="product-card" data-category="task">
+                            <div class="product-info">
+                                <h4>捕风的异乡人</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">蒙德主线任务</p>
+                                    <p class="product-desc">序章 · 第一幕</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥15.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="task">
+                            <div class="product-info">
+                                <h4>为了没有眼泪的明天</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">蒙德主线任务</p>
+                                    <p class="product-desc">序章 · 第二幕</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥15.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 探索类商品 -->
+                        <div class="product-card" data-category="explore">
+                            <div class="product-info">
+                                <h4>枫丹·佩特莉可镇+旧日之海</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">地图探索任务</p>
+                                    <p class="product-desc">包任务完成</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥70.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="explore">
+                            <div class="product-info">
+                                <h4>璃月·沉玉谷</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">地图探索任务</p>
+                                    <p class="product-desc">包任务完成</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥90.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 采集类商品 -->
+                        <div class="product-card" data-category="collect">
+                            <div class="product-info">
+                                <h4>纳塔特产采集</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">纳塔地区特产</p>
+                                    <p class="product-desc">全种类采集</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥20.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="collect">
+                            <div class="product-info">
+                                <h4>挪德卡莱特产采集</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">挪德卡莱地区特产</p>
+                                    <p class="product-desc">全种类采集</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥25.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 打怪类商品 -->
+                        <div class="product-card" data-category="combat">
+                            <div class="product-info">
+                                <h4>白色品质怪物</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">普通怪物清理</p>
+                                    <p class="product-desc">白色品质掉落</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥5.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="combat">
+                            <div class="product-info">
+                                <h4>绿色品质怪物</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">精英怪物清理</p>
+                                    <p class="product-desc">绿色品质掉落</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥8.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="combat">
+                            <div class="product-info">
+                                <h4>蓝色品质怪物</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">稀有怪物清理</p>
+                                    <p class="product-desc">蓝色品质掉落</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥12.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="combat">
+                            <div class="product-info">
+                                <h4>紫色品质怪物</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">BOSS级怪物清理</p>
+                                    <p class="product-desc">紫色品质掉落</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥20.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 账号托管类商品 -->
+                        <div class="product-card" data-category="account">
+                            <div class="product-info">
+                                <h4>登录领月卡</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">每日登录领取月卡</p>
+                                    <p class="product-desc">保证不漏签</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥5.00/月</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="account">
+                            <div class="product-info">
+                                <h4>委托+160体力+派遣</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">日常任务全包</p>
+                                    <p class="product-desc">体力充分利用</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥25.00/月</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="account">
+                            <div class="product-info">
+                                <h4>委托+160体力(可指定1)+派遣</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">日常任务+体力指定</p>
+                                    <p class="product-desc">个性化服务</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥30.00/月</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="account">
+                            <div class="product-info">
+                                <h4>全托管基础版</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">委托+体力+派遣+壶币</p>
+                                    <p class="product-desc">+锻造+20食物</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥35.00/月</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="account">
+                            <div class="product-info">
+                                <h4>全托管高级版</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">委托+体力(可指定1)+派遣</p>
+                                    <p class="product-desc">+壶币+锻造+20食物</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥40.00/月</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="account">
+                            <div class="product-info">
+                                <h4>幽境危战</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">仅原石奖励</p>
+                                    <p class="product-desc">单次完成</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥12.00/次</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="account">
+                            <div class="product-info">
+                                <h4>版本大活动</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">仅原石奖励</p>
+                                    <p class="product-desc">单次完成</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥23.00/次</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="account">
+                            <div class="product-info">
+                                <h4>版本小活动</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">仅原石奖励</p>
+                                    <p class="product-desc">单次完成</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥9.00/次</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 钓鱼类商品 -->
+                        <div class="product-card" data-category="fishing">
+                            <div class="product-info">
+                                <h4>鱼叉（渔获）满精</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">钓鱼武器满精炼</p>
+                                    <p class="product-desc">保证品质</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥40.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="fishing">
+                            <div class="product-info">
+                                <h4>水管（灰河渡手）满精</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">钓鱼武器满精炼</p>
+                                    <p class="product-desc">保证品质</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥40.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="fishing">
+                            <div class="product-info">
+                                <h4>鱼弓（竭泽）满精</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">钓鱼武器满精炼</p>
+                                    <p class="product-desc">保证品质</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥50.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="fishing">
+                            <div class="product-info">
+                                <h4>成就/书页</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">钓鱼相关成就</p>
+                                    <p class="product-desc">书页收集</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥1.00/池</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="fishing">
+                            <div class="product-info">
+                                <h4>家具</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">钓鱼相关家具</p>
+                                    <p class="product-desc">装饰收集</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥0.10/条</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="fishing">
+                            <div class="product-info">
+                                <h4>指定鱼种</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">特定鱼类钓取</p>
+                                    <p class="product-desc">精准服务</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥0.10/条</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="fishing">
+                            <div class="product-info">
+                                <h4>鱼饵</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">各种鱼饵制作</p>
+                                    <p class="product-desc">钓鱼必备</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥0.05/个</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="fishing">
+                            <div class="product-info">
+                                <h4>鱼饵图纸</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">鱼饵制作图纸</p>
+                                    <p class="product-desc">配方收集</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥1.00/个</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 其它类商品 -->
+                        <div class="product-card" data-category="other">
+                            <div class="product-info">
+                                <h4>千音雅集·单曲</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">音乐收集服务</p>
+                                    <p class="product-desc">单曲完成</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥0.50</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="other">
+                            <div class="product-info">
+                                <h4>千音雅集·单国家</h4>
+                                <div class="product-details">
+                                    <p class="product-desc">音乐收集服务</p>
+                                    <p class="product-desc">整个国家完成</p>
+                                    <div class="price-section">
+                                        <span class="current-price">¥5.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 折扣计算页内容 -->
+        <div id="discount" class="tab-content">
+            <div class="discount-calculator">
+                <h2>折扣计算器</h2>
+                <p>根据您的粉丝牌等级和特殊身份享受相应折扣</p>
+                
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="tabOriginalPrice">商品原价：</label>
+                        <input type="number" id="tabOriginalPrice" placeholder="请输入商品价格" min="0" step="0.01">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tabDiscountType">优惠类型：</label>
+                        <select id="tabDiscountType">
+                            <option value="">请选择优惠类型</option>
+                            <option value="fans">粉丝牌优惠</option>
+                            <option value="group">群友优惠</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="tabFansOptions" style="display: none;">
+                        <label for="tabFansLevel">粉丝牌等级：</label>
+                        <select id="tabFansLevel">
+                            <option value="0">请选择等级</option>
+                            <option value="1">8~12级 (95折)</option>
+                            <option value="2">13~16级 (9折)</option>
+                            <option value="3">17~19级 (85折)</option>
+                            <option value="4">20~25级 (8折)</option>
+                            <option value="5">25级以上 (75折)</option>
+                            <option value="6">舰长 (7折)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="tabGroupOptions" style="display: none;">
+                        <label for="tabGroupLevel">群友等级：</label>
+                        <select id="tabGroupLevel">
+                            <option value="0">请选择等级</option>
+                            <option value="1">黄金 (95折)</option>
+                            <option value="2">铂金 (9折)</option>
+                            <option value="3">钻石 (85折)</option>
+                            <option value="4">王者 (8折)</option>
+                            <option value="5">紫牌 (5折)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label>特殊优惠：</label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="tabStudentVerified">
+                            已验证学生/教师 (85折)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="tabStudentUnverified">
+                            未验证学生/教师 (9折)
+                        </label>
+                    </div>
+
+                    <button class="btn-primary" onclick="calculateTabDiscount()">计算折扣</button>
+
+                    <div class="result-section">
+                        <h3>计算结果</h3>
+                        <div class="result-item">
+                            <span>原价：</span>
+                            <span id="tabOriginalPriceResult">¥0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span>折扣金额：</span>
+                            <span id="tabDiscountAmount">¥0.00</span>
+                        </div>
+                        <div class="result-item total">
+                            <span>最终价格：</span>
+                            <span id="tabFinalPrice">¥0.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="discount-info">
+                    <h3>需要完整功能？</h3>
+                    <p>访问 <a href="discount.html">独立折扣计算器</a> 获得更专业的计算体验</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 原神代肝小站. 版权所有.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 标签切换功能
+        function switchTab(tabName) {
+            // 隐藏所有标签内容
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // 移除所有按钮的active类
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // 显示选中的标签内容
+            document.getElementById(tabName).classList.add('active');
+            
+            // 为选中的按钮添加active类
+            document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+            
+            // 滚动到顶部
+            window.scrollTo(0, 0);
+        }
+
+        // 为标签按钮添加点击事件
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const tabName = this.getAttribute('data-tab');
+                switchTab(tabName);
+            });
+        });
+
+        // 折扣类型切换
+        document.getElementById('tabDiscountType').addEventListener('change', function() {
+            const discountType = this.value;
+            document.getElementById('tabFansOptions').style.display = 'none';
+            document.getElementById('tabGroupOptions').style.display = 'none';
+            
+            if (discountType === 'fans') {
+                document.getElementById('tabFansOptions').style.display = 'block';
+            } else if (discountType === 'group') {
+                document.getElementById('tabGroupOptions').style.display = 'block';
+            }
+        });
+
+        // 特殊优惠复选框互斥
+        document.getElementById('tabStudentVerified').addEventListener('change', function() {
+            if (this.checked) {
+                document.getElementById('tabStudentUnverified').checked = false;
+            }
+        });
+
+        document.getElementById('tabStudentUnverified').addEventListener('change', function() {
+            if (this.checked) {
+                document.getElementById('tabStudentVerified').checked = false;
+            }
+        });
+
+        // 折扣计算函数
+        function calculateTabDiscount() {
+            const originalPrice = parseFloat(document.getElementById('tabOriginalPrice').value);
+            const discountType = document.getElementById('tabDiscountType').value;
+            
+            if (isNaN(originalPrice) || originalPrice <= 0) {
+                alert('请输入有效的商品原价！');
+                return;
+            }
+
+            let discountRate = 1;
+            
+            if (discountType === 'fans') {
+                const fansLevel = document.getElementById('tabFansLevel').value;
+                if (fansLevel === '0') {
+                    alert('请选择粉丝牌等级！');
+                    return;
+                }
+                const rates = {1: 0.95, 2: 0.9, 3: 0.85, 4: 0.8, 5: 0.75, 6: 0.7};
+                discountRate = rates[fansLevel];
+            } else if (discountType === 'group') {
+                const groupLevel = document.getElementById('tabGroupLevel').value;
+                if (groupLevel === '0') {
+                    alert('请选择群友等级！');
+                    return;
+                }
+                const rates = {1: 0.95, 2: 0.9, 3: 0.85, 4: 0.8, 5: 0.5};
+                discountRate = rates[groupLevel];
+            } else {
+                alert('请选择优惠类型！');
+                return;
+            }
+
+            // 特殊优惠
+            let specialDiscount = 1;
+            if (document.getElementById('tabStudentVerified').checked) {
+                specialDiscount = 0.85;
+            } else if (document.getElementById('tabStudentUnverified').checked) {
+                specialDiscount = 0.9;
+            }
+
+            const finalDiscountRate = discountRate * specialDiscount;
+            const discountAmount = originalPrice * (1 - finalDiscountRate);
+            const finalPrice = originalPrice - discountAmount;
+
+            // 更新显示
+            document.getElementById('tabOriginalPriceResult').textContent = formatCurrency(originalPrice);
+            document.getElementById('tabDiscountAmount').textContent = formatCurrency(discountAmount);
+            document.getElementById('tabFinalPrice').textContent = formatCurrency(finalPrice);
+        }
+
+        function formatCurrency(amount) {
+            return '¥' + amount.toFixed(2);
+        }
+
+        // 搜索功能（简化版）
+        function performTabSearch() {
+            const searchTerm = document.getElementById('tabSearchInput').value.toLowerCase().trim();
+            if (searchTerm) {
+                alert('搜索功能：' + searchTerm + '\n完整搜索功能请访问独立分类页面');
+            }
+        }
+
+        // 回车键搜索
+        document.getElementById('tabSearchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performTabSearch();
+            }
+        });
+
+        // 分类筛选功能
+        function filterProducts(category) {
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (cardCategory === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // 更新活动分类按钮
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-category="${category}"]`).classList.add('active');
+        }
+
+        // 为分类按钮添加点击事件
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                filterProducts(category);
+            });
+        });
+
+        // 初始化显示所有商品
+        filterProducts('all');
+
+        console.log('整合页面已加载完成');
+    </script>
+</body>
+</html>
