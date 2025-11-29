@@ -23,6 +23,7 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 1rem 0;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
 }
 
 .nav-container {
@@ -40,10 +41,29 @@ body {
     font-weight: bold;
 }
 
+/* 汉堡菜单按钮 */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1000;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* 导航菜单 */
 .nav-menu {
     display: flex;
     list-style: none;
     gap: 2rem;
+    transition: all 0.3s ease;
 }
 
 .nav-menu a {
@@ -52,11 +72,49 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 5px;
     transition: background-color 0.3s;
+    font-size: 1rem;
 }
 
 .nav-menu a:hover,
 .nav-menu a.active {
     background-color: rgba(255,255,255,0.2);
+}
+
+/* 移动端导航样式 */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        flex-direction: column;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        width: 250px;
+        height: 100vh;
+        padding: 80px 20px 20px;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+        gap: 1.5rem;
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    /* 汉堡菜单动画 */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
 }
 
 /* Banner样式 */
@@ -220,6 +278,8 @@ body {
     align-items: center;
     margin-bottom: 2rem;
     padding: 0 20px;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .category-header h2 {
@@ -232,6 +292,8 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex: 1;
+    max-width: 400px;
 }
 
 .search-input {
@@ -239,8 +301,9 @@ body {
     border: 2px solid #ddd;
     border-radius: 8px;
     font-size: 1rem;
-    width: 300px;
+    width: 100%;
     transition: border-color 0.3s;
+    min-width: 200px;
 }
 
 .search-input:focus {
@@ -257,6 +320,7 @@ body {
     cursor: pointer;
     font-weight: bold;
     transition: transform 0.2s;
+    white-space: nowrap;
 }
 
 .search-btn:hover {
@@ -268,6 +332,43 @@ body {
     grid-template-columns: 250px 1fr;
     gap: 2rem;
     align-items: start;
+    padding: 0 20px;
+}
+
+/* 移动端分类页布局 */
+@media (max-width: 992px) {
+    .category-layout {
+        grid-template-columns: 200px 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .category-header {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .category-header h2 {
+        font-size: 2rem;
+    }
+    
+    .search-box {
+        max-width: 100%;
+    }
+    
+    .category-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .category-sidebar {
+        order: 2;
+    }
+    
+    .category-content {
+        order: 1;
+    }
 }
 
 /* 左侧分类导航 */
@@ -424,6 +525,34 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 1.2rem;
     margin-bottom: 2rem;
+}
+
+/* 响应式商品网格 */
+@media (max-width: 1200px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 0.6rem;
+    }
 }
 
 .product-card {
@@ -857,6 +986,7 @@ footer {
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     border: 1px solid #dee2e6;
+    overflow: hidden;
 }
 
 .discount-category h4 {
@@ -869,10 +999,17 @@ footer {
     padding-bottom: 8px;
 }
 
+/* 表格容器，添加滚动 */
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 .discount-category table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+    min-width: 300px;
 }
 
 .discount-category th,
@@ -880,6 +1017,7 @@ footer {
     padding: 12px 8px;
     text-align: center;
     border: 1px solid #dee2e6;
+    white-space: nowrap;
 }
 
 .discount-category th {
@@ -887,6 +1025,9 @@ footer {
     color: white;
     font-weight: 600;
     font-size: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .discount-category td {
@@ -915,9 +1056,27 @@ footer {
         padding: 15px;
     }
     
+    .discount-category h4 {
+        font-size: 16px;
+    }
+    
     .discount-category th,
     .discount-category td {
         padding: 8px 6px;
         font-size: 12px;
+    }
+}
+
+/* 通用表格响应式样式 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 }
