@@ -24,6 +24,7 @@ body {
     padding: 1rem 0;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: relative;
+    z-index: 100; /* 添加z-index确保导航栏在最上层 */
 }
 
 .nav-container {
@@ -33,6 +34,15 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap;
+}
+
+/* 确保logo和汉堡菜单在同一行的容器 */
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .logo {
@@ -73,6 +83,32 @@ body {
     border-radius: 5px;
     transition: background-color 0.3s;
     font-size: 1rem;
+    /* PC模式下将文本链接替换为图片 */
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-indent: -9999px; /* 隐藏文本 */
+    overflow: hidden;
+}
+
+/* 为每个导航链接设置对应的图片 */
+.nav-menu a[href="index.html"] {
+    background-image: url('../pic/index.png');
+}
+
+.nav-menu a[href="categories.html"] {
+    background-image: url('../pic/categories.png');
+}
+
+.nav-menu a[href="discount.html"] {
+    background-image: url('../pic/discount.png');
+}
+
+.nav-menu a[href="guide.html"] {
+    background-image: url('../pic/guide.png');
 }
 
 .nav-menu a:hover,
@@ -84,23 +120,58 @@ body {
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
+        align-items: center;
+    }
+    
+    /* 确保logo和汉堡菜单在同一行 */
+    .nav-container {
+        flex-wrap: nowrap;
+    }
+    
+    /* 确保nav-header在移动端也能正确工作 */
+    .nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    
+    /* 调整logo大小以适应移动端 */
+    .logo {
+        font-size: 1.2rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: calc(100% - 60px);
+        margin: 0;
+    }
+    
+    /* 移动端模式下恢复导航菜单为文本链接 */
+    .nav-menu a {
+        display: block;
+        width: auto;
+        height: auto;
+        background-image: none;
+        text-indent: 0;
+        text-align: center;
+        padding: 1rem;
     }
     
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%;
+        left: -100%; /* 初始位置在左侧外部 */
         flex-direction: column;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         width: 250px;
         height: 100vh;
         padding: 80px 20px 20px;
-        box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+        box-shadow: 2px 0 10px rgba(0,0,0,0.2); /* 阴影方向调整 */
         gap: 1.5rem;
     }
     
     .nav-menu.active {
-        right: 0;
+        left: 0; /* 激活时从左侧滑入 */
     }
     
     /* 汉堡菜单动画 */
@@ -333,6 +404,49 @@ body {
     gap: 2rem;
     align-items: start;
     padding: 0 20px;
+    position: relative;
+}
+
+/* 固定左侧分类菜单 */
+.category-sidebar {
+    position: sticky;
+    top: 80px; /* 距离顶部的距离，考虑到导航栏高度 */
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    z-index: 50; /* 添加z-index确保侧边栏在内容区域上方但在导航栏下方 */
+}
+
+/* 回到顶部按钮样式 */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* 移动端分类页布局 */
@@ -363,11 +477,20 @@ body {
     }
     
     .category-sidebar {
-        order: 2;
+        order: 1; /* 移动端分类菜单放在商品内容上方 */
+        position: static;
+        max-height: none;
     }
     
     .category-content {
-        order: 1;
+        order: 2; /* 移动端商品内容放在分类菜单下方 */
+    }
+    
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
     }
 }
 
@@ -376,7 +499,7 @@ body {
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    overflow: hidden;
+    /* 移除overflow: hidden，确保在PC模式下分类按钮超出时显示滚动条 */
 }
 
 .sidebar-header {
@@ -928,6 +1051,13 @@ footer {
     margin-top: 3rem;
 }
 
+footer .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .nav-container {
@@ -1078,5 +1208,285 @@ table {
         display: block;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* 攻略页样式 */
+.guide-container {
+    padding: 30px 0;
+    min-height: 80vh;
+}
+
+.guide-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 2rem;
+    align-items: start;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.guide-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+.guide-content h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.guide-section {
+    margin-bottom: 3rem;
+}
+
+.guide-section h3 {
+    font-size: 2rem;
+    color: #667eea;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f1f3f5;
+}
+
+.guide-subsections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.guide-subsection {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.guide-subsection:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.guide-subsection h4 {
+    font-size: 1.2rem;
+    color: #495057;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.guide-subsection p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 右侧边栏样式 */
+.guide-sidebar {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    width: 100%;
+    max-width: 280px;
+    margin-left: auto;
+}
+
+.guide-sidebar .sidebar-header h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f1f3f5;
+    text-align: center;
+}
+
+.official-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.official-link-btn {
+    display: block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 1rem;
+}
+
+.official-link-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+/* 折叠功能样式 */
+.collapsible-section {
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.collapsible-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.collapsible-header:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+.collapsible-header span {
+    font-weight: bold;
+}
+
+.collapsible-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    transition: transform 0.3s;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collapsible-section.active .collapsible-btn {
+    transform: rotate(180deg);
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 1.5rem;
+    background: white;
+}
+
+.collapsible-section.active .collapsible-content {
+    max-height: 2000px;
+    padding: 1.5rem;
+}
+
+/* 折叠内容内列表样式 */
+.collapsible-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.collapsible-content li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.collapsible-content li::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-size: 0.8rem;
+}
+
+.collapsible-content a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.collapsible-content a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+.collapsible-content p {
+    margin-bottom: 0.8rem;
+    color: #666;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .guide-layout {
+        grid-template-columns: 1fr 250px;
+        gap: 1.5rem;
+    }
+    
+    .guide-subsections {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .guide-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    /* 在移动端将官方资源边栏显示在主要内容上方 */
+    .guide-sidebar {
+        position: static;
+        order: 1;
+        max-width: 100%;
+        margin-left: 0;
+    }
+    
+    .guide-content {
+        order: 2;
+    }
+    
+    .guide-subsections {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .guide-content {
+        padding: 1.5rem;
+    }
+    
+    .guide-content h2 {
+        font-size: 2rem;
+    }
+    
+    .guide-section h3 {
+        font-size: 1.5rem;
+    }
+    
+    .guide-subsections {
+        grid-template-columns: 1fr;
+    }
+    
+    .guide-sidebar {
+        padding: 1.5rem;
     }
 }

@@ -213,5 +213,25 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 
+    // 回到顶部按钮功能
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    // 滚动监听显示/隐藏按钮
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+    
+    // 点击回到顶部
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
     console.log('分类页面功能已初始化');
 });
